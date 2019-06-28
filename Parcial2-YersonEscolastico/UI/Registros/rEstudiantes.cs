@@ -40,8 +40,6 @@ namespace Parcial2_YersonEscolastico.UI.Registros
             estudiante.Nombre = NombretextBox.Text;
             estudiante.EstudianteId = (int)IdnumericUpDown.Value;
             estudiante.FechaIngreso = FechadateTimePicker.Value;
-            estudiante.Balance = Decimal.Parse(BalancetextBox.Text);
-
             return estudiante;
         }
 
@@ -76,42 +74,51 @@ namespace Parcial2_YersonEscolastico.UI.Registros
             return paso;
         }
 
+        private bool ExisteEnLaBaseDeDatos()
+        {
+            RepositorioBase<Estudiantes> db = new RepositorioBase<Estudiantes>(new DAL.Contexto());
+            Estudiantes estudiante = db.Buscar((int)IdnumericUpDown.Value);
+            return (estudiante != null);
+
+        }
 
         private void Guadarbutton_Click(object sender, EventArgs e)
         {
+            RepositorioBase<Estudiantes> db = new RepositorioBase<Estudiantes>(new DAL.Contexto());
+            Estudiantes estudiante;
+            bool paso = false;
+
             if (!validar())
                 return;
 
-            try
+            estudiante = LlenarClase();
+
+
+            if (IdnumericUpDown.Value == 0)
             {
-                Estudiantes estudiante = new Estudiantes();
-                estudiante = LlenarClase();
-                RepositorioBase<Estudiantes> db = new RepositorioBase<Estudiantes>();
-
-                if (IdnumericUpDown.Value == 0)
+                paso = db.Guardar(estudiante);
+            }
+            else
+            {
+                if (!ExisteEnLaBaseDeDatos())
                 {
-                    db.Guardar(estudiante);
-                    MessageBox.Show("Guardado", "Atencion!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No se puede modificar un Estudiante que no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-                else
-                {
-                    db.Modificar(estudiante);
-                    MessageBox.Show("Modificado", "Atencion!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                }
-
-                Limpiar();
+                paso = db.Modificar(estudiante);
 
             }
-            catch (Exception)
-            {
-                MessageBox.Show("error", "Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+            if (paso)
+                MessageBox.Show("Guardado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("No fue posible guardar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Limpiar();
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
-            RepositorioBase<Estudiantes> db = new RepositorioBase<Estudiantes>();
+            RepositorioBase<Estudiantes> db = new RepositorioBase<Estudiantes>(new DAL.Contexto());
             try
             {
 
@@ -137,7 +144,7 @@ namespace Parcial2_YersonEscolastico.UI.Registros
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
-            RepositorioBase<Estudiantes> db = new RepositorioBase<Estudiantes>();
+             RepositorioBase<Estudiantes> db = new RepositorioBase<Estudiantes>(new DAL.Contexto());
             try
             {
                 if (IdnumericUpDown.Value > 0)
@@ -160,6 +167,5 @@ namespace Parcial2_YersonEscolastico.UI.Registros
                 MessageBox.Show("NO se pudo eliminar", "Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
     }
 }
