@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Parcial2_YersonEscolastico.UI.Registros;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace Parcial2_YersonEscolastico
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void EstudiantesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rEstudiantes est = new rEstudiantes();
+            est.StartPosition = FormStartPosition.CenterScreen;
+            est.Show();
         }
     }
 }
