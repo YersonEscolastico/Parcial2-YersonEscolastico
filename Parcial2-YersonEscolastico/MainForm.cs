@@ -24,5 +24,12 @@ namespace Parcial2_YersonEscolastico
             est.StartPosition = FormStartPosition.CenterScreen;
             est.Show();
         }
+
+        private void AsignaturasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rAsignaturas asg = new rAsignaturas();
+            asg.StartPosition = FormStartPosition.CenterScreen;
+            asg.Show();
+        }
     }
 }

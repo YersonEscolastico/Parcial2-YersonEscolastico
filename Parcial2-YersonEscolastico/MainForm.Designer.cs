@@ -66,6 +66,7 @@
             this.asignaturasToolStripMenuItem.Name = "asignaturasToolStripMenuItem";
             this.asignaturasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.asignaturasToolStripMenuItem.Text = "Asignaturas";
+            this.asignaturasToolStripMenuItem.Click += new System.EventHandler(this.AsignaturasToolStripMenuItem_Click);
             // 
             // MainForm
             // 
