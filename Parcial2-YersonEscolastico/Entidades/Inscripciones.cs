@@ -14,7 +14,7 @@ namespace Parcial2_YersonEscolastico.Entidades
         public int EstudianteId { get; set; }
         public DateTime Fecha { get; set; }
         public decimal Monto { get; set; }
-        public virtual List<InscripcionesDetalle> Asiganturas { get; set; }
+        public virtual List<InscripcionesDetalle> Asignaturas { get; set; }
 
         public Inscripciones()
         {
@@ -22,7 +22,19 @@ namespace Parcial2_YersonEscolastico.Entidades
             EstudianteId = 0;
             Fecha = DateTime.Now;
             Monto = 0;
-            Asiganturas = new List<InscripcionesDetalle>();
+            Asignaturas = new List<InscripcionesDetalle>();
+        }
+
+        public void CalcularMonto()
+        {
+            decimal total = 0;
+
+            foreach (var item in Asignaturas)
+            {
+                total += item.SubTotal;
+            }
+
+            Monto = total;
         }
     }
 }
