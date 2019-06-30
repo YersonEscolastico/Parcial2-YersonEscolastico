@@ -12,6 +12,7 @@ namespace Parcial2_YersonEscolastico.DAL
     {
         public DbSet<Estudiantes> Estudiantes { get; set; }
         public DbSet<Asignaturas> Asignaturas { get; set; }
+        public DbSet<Inscripciones> Inscripcion { get; set; }
 
         public Contexto() : base("ConStr")
         { }
