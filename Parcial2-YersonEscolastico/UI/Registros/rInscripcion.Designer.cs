@@ -236,6 +236,7 @@
             this.EstudiantecomboBox.Name = "EstudiantecomboBox";
             this.EstudiantecomboBox.Size = new System.Drawing.Size(190, 21);
             this.EstudiantecomboBox.TabIndex = 44;
+            
             // 
             // IdnumericUpDown
             // 
