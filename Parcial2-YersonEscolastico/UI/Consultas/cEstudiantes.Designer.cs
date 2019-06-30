@@ -135,6 +135,7 @@
             this.Consultarbutton.Text = "Consultar";
             this.Consultarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Consultarbutton.UseVisualStyleBackColor = true;
+            this.Consultarbutton.Click += new System.EventHandler(this.Consultarbutton_Click);
             // 
             // cEstudiantes
             // 

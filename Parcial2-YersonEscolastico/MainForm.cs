@@ -1,4 +1,5 @@
-﻿using Parcial2_YersonEscolastico.UI.Registros;
+﻿using Parcial2_YersonEscolastico.UI.Consultas;
+using Parcial2_YersonEscolastico.UI.Registros;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,6 +37,12 @@ namespace Parcial2_YersonEscolastico
         {
             rInscripcion ins = new rInscripcion();
             ins.Show();
+        }
+
+        private void CEstudiantesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cEstudiantes est = new cEstudiantes();
+            est.Show();
         }
     }
 }
