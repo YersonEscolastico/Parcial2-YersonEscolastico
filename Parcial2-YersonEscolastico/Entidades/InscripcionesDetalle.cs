@@ -16,8 +16,8 @@ namespace Parcial2_YersonEscolastico.Entidades
         public int AsignaturaId { get; set; }
         public decimal SubTotal { get; set; }
 
-        [ForeignKey("AsignaturaId")]
-        public virtual Asignaturas Asignatura { get; set; }
+        //[ForeignKey("AsignaturaId")]
+        //public virtual Asignaturas Asignatura { get; set; }
 
         public InscripcionesDetalle()
         {

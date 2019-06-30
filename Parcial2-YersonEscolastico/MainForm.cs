@@ -31,5 +31,11 @@ namespace Parcial2_YersonEscolastico
             asg.StartPosition = FormStartPosition.CenterScreen;
             asg.Show();
         }
+
+        private void InscripcionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rInscripcion ins = new rInscripcion();
+            ins.Show();
+        }
     }
 }

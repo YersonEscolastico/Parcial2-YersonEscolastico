@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.MontoInscripciontextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.Guardarbutton = new System.Windows.Forms.Button();
@@ -48,10 +49,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.MyErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.detalleDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MontonumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // MontoInscripciontextBox
@@ -86,6 +89,7 @@
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.Guardarbutton.UseVisualStyleBackColor = true;
+            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
             // 
             // Buscarbutton
             // 
@@ -99,6 +103,7 @@
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Buscarbutton.UseVisualStyleBackColor = true;
+            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
             // Eliminarbutton
             // 
@@ -113,6 +118,7 @@
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.Eliminarbutton.UseVisualStyleBackColor = true;
+            this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
             // 
             // Nuevobutton
             // 
@@ -127,6 +133,7 @@
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.Nuevobutton.UseVisualStyleBackColor = true;
+            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
             // 
             // groupBox1
             // 
@@ -156,6 +163,7 @@
             this.Removerbutton.Text = "Remover fila";
             this.Removerbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Removerbutton.UseVisualStyleBackColor = true;
+            this.Removerbutton.Click += new System.EventHandler(this.Removerbutton_Click);
             // 
             // label5
             // 
@@ -176,6 +184,7 @@
             this.Agregarbutton.Size = new System.Drawing.Size(32, 31);
             this.Agregarbutton.TabIndex = 35;
             this.Agregarbutton.UseVisualStyleBackColor = true;
+            this.Agregarbutton.Click += new System.EventHandler(this.Agregarbutton_Click);
             // 
             // AsignaturacomboBox
             // 
@@ -188,7 +197,6 @@
             // 
             // detalleDataGridView
             // 
-            this.detalleDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.detalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.detalleDataGridView.Location = new System.Drawing.Point(16, 56);
             this.detalleDataGridView.Margin = new System.Windows.Forms.Padding(2);
@@ -282,6 +290,10 @@
             this.label1.TabIndex = 39;
             this.label1.Text = "Id";
             // 
+            // MyErrorProvider
+            // 
+            this.MyErrorProvider.ContainerControl = this;
+            // 
             // rInscripcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,6 +321,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.detalleDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MontonumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,5 +349,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider MyErrorProvider;
     }
 }
