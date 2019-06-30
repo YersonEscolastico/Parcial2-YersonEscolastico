@@ -93,6 +93,7 @@
             // 
             this.ConsultadataGridView.AllowUserToAddRows = false;
             this.ConsultadataGridView.AllowUserToDeleteRows = false;
+            this.ConsultadataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ConsultadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ConsultadataGridView.Location = new System.Drawing.Point(12, 57);
             this.ConsultadataGridView.Name = "ConsultadataGridView";
@@ -127,6 +128,7 @@
             // 
             // Consultarbutton
             // 
+            this.Consultarbutton.Image = global::Parcial2_YersonEscolastico.Properties.Resources.Search_icon__1_;
             this.Consultarbutton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.Consultarbutton.Location = new System.Drawing.Point(469, 28);
             this.Consultarbutton.Name = "Consultarbutton";

@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.ConsultadataGridView = new System.Windows.Forms.DataGridView();
-            this.Consultarbutton = new System.Windows.Forms.Button();
             this.CriteriotextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.FiltrocomboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Consultarbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ConsultadataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,23 +41,13 @@
             // 
             this.ConsultadataGridView.AllowUserToAddRows = false;
             this.ConsultadataGridView.AllowUserToDeleteRows = false;
+            this.ConsultadataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ConsultadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ConsultadataGridView.Location = new System.Drawing.Point(12, 55);
             this.ConsultadataGridView.Name = "ConsultadataGridView";
             this.ConsultadataGridView.ReadOnly = true;
             this.ConsultadataGridView.Size = new System.Drawing.Size(468, 273);
             this.ConsultadataGridView.TabIndex = 17;
-            // 
-            // Consultarbutton
-            // 
-            this.Consultarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Consultarbutton.Location = new System.Drawing.Point(408, 25);
-            this.Consultarbutton.Name = "Consultarbutton";
-            this.Consultarbutton.Size = new System.Drawing.Size(75, 21);
-            this.Consultarbutton.TabIndex = 16;
-            this.Consultarbutton.Text = "Consultar";
-            this.Consultarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Consultarbutton.UseVisualStyleBackColor = true;
             // 
             // CriteriotextBox
             // 
@@ -95,6 +85,18 @@
             this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 12;
             this.label1.Text = "Filtro";
+            // 
+            // Consultarbutton
+            // 
+            this.Consultarbutton.Image = global::Parcial2_YersonEscolastico.Properties.Resources.Search_icon__1_;
+            this.Consultarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Consultarbutton.Location = new System.Drawing.Point(408, 25);
+            this.Consultarbutton.Name = "Consultarbutton";
+            this.Consultarbutton.Size = new System.Drawing.Size(75, 21);
+            this.Consultarbutton.TabIndex = 16;
+            this.Consultarbutton.Text = "Consultar";
+            this.Consultarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Consultarbutton.UseVisualStyleBackColor = true;
             // 
             // cAsignaturas
             // 
