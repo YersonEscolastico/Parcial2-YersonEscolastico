@@ -52,7 +52,6 @@
             this.FiltrocomboBox.Name = "FiltrocomboBox";
             this.FiltrocomboBox.Size = new System.Drawing.Size(105, 21);
             this.FiltrocomboBox.TabIndex = 32;
-            this.FiltrocomboBox.SelectedIndexChanged += new System.EventHandler(this.FiltrocomboBox_SelectedIndexChanged);
             // 
             // HastadateTimePicker
             // 
@@ -125,7 +124,6 @@
             this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 23;
             this.label1.Text = "Filtro";
-            this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // Consultarbutton
             // 
@@ -154,8 +152,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "cEstudiantes";
-            this.Text = "cEstudiantes";
-            this.Load += new System.EventHandler(this.CEstudiantes_Load);
+            this.Text = "Consulta de estudiantes";
             ((System.ComponentModel.ISupportInitialize)(this.ConsultadataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
