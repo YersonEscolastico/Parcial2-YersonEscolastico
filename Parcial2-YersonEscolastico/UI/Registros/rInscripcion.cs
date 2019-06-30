@@ -95,6 +95,13 @@ namespace Parcial2_YersonEscolastico.UI.Registros
                 paso = false;
             }
 
+            if (AsignaturacomboBox.Text == string.Empty)
+            {
+                MyErrorProvider.SetError(AsignaturacomboBox, "Este campo no puede estar vacio");
+                AsignaturacomboBox.Focus();
+                paso = false;
+            }
+
             if (Detalle.Count == 0)
             {
                 MyErrorProvider.SetError(AsignaturacomboBox, "Este campo no puede estar vacio");
@@ -134,8 +141,8 @@ namespace Parcial2_YersonEscolastico.UI.Registros
                     MessageBox.Show("No se puede modificar un Estudiante que no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                paso = InscripcionesBLL.Modificar(inscripcion);
-                MessageBox.Show("Modificado");
+                MessageBox.Show("Modificado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                paso = InscripcionesBLL.Modificar(inscripcion);             
             }
 
             if (paso)
@@ -188,6 +195,9 @@ namespace Parcial2_YersonEscolastico.UI.Registros
 
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
+            if (!Validar())
+                return;
+
             RepositorioBase<Asignaturas> db = new RepositorioBase<Asignaturas>();
             Asignaturas asignatura = db.Buscar((int)AsignaturacomboBox.SelectedValue);
             if (detalleDataGridView.DataSource != null)
