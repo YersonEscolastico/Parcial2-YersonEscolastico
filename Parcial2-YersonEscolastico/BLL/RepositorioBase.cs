@@ -16,9 +16,9 @@ namespace Tarea6.BLL
 
         internal Contexto db;
 
-        public RepositorioBase(Contexto contexto)
+        public RepositorioBase()
         {
-            db = contexto;
+            db = new Contexto();
         }
 
         public virtual bool Guardar(T entity)

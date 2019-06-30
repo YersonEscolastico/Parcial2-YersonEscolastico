@@ -48,23 +48,30 @@ namespace Parcial2_YersonEscolastico.UI.Registros
         {
             Inscripciones inscripcion = new Inscripciones();
             inscripcion.Asignaturas = this.Detalle;
-            inscripcion.EstudianteId = Convert.ToInt32(EstudiantecomboBox.SelectedValue);
+
+            if (IdnumericUpDown.Value == 0)
+            {
+                inscripcion.EstudianteId = Convert.ToInt32(EstudiantecomboBox.SelectedValue);
+            }
+            else
+            {
+                inscripcion.EstudianteId = Convert.ToInt32(EstudiantecomboBox.Text);
+            }
             inscripcion.InscripcionId = Convert.ToInt32(IdnumericUpDown.Value);
-            inscripcion.Monto = MontonumericUpDown.Value;
+            inscripcion.MontoCreditos = MontonumericUpDown.Value;
             inscripcion.CalcularMonto();
-            inscripcion.Fecha = FechadateTimePicker.Value;
+            inscripcion.FechaInscripcion = FechadateTimePicker.Value;
 
             return inscripcion;
-
         }
 
         private void LlenaCampos(Inscripciones inscripcion)
         {
             IdnumericUpDown.Value = inscripcion.InscripcionId;
             EstudiantecomboBox.Text = inscripcion.EstudianteId.ToString();
-            MontoInscripciontextBox.Text = inscripcion.Monto.ToString();
-            MontonumericUpDown.Value = inscripcion.Monto;
-            FechadateTimePicker.Value = inscripcion.Fecha;
+            MontoInscripciontextBox.Text = inscripcion.MontoInscripcion.ToString();
+            MontonumericUpDown.Value = inscripcion.MontoCreditos;
+            FechadateTimePicker.Value = inscripcion.FechaInscripcion;
             this.Detalle = inscripcion.Asignaturas;
             CargarGrid();
         }
@@ -100,7 +107,7 @@ namespace Parcial2_YersonEscolastico.UI.Registros
 
         private bool ExisteEnLaBaseDeDatos()
         {
-            RepositorioBase<Inscripciones> db = new RepositorioBase<Inscripciones>(new DAL.Contexto());
+            RepositorioBase<Inscripciones> db = new RepositorioBase<Inscripciones>();
             Inscripciones inscripcion = db.Buscar((int)IdnumericUpDown.Value);
             return (inscripcion != null);
 
@@ -128,7 +135,7 @@ namespace Parcial2_YersonEscolastico.UI.Registros
                     return;
                 }
                 paso = InscripcionesBLL.Modificar(inscripcion);
-
+                MessageBox.Show("Modificado");
             }
 
             if (paso)
@@ -142,7 +149,7 @@ namespace Parcial2_YersonEscolastico.UI.Registros
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
-            RepositorioBase<Inscripciones> db = new RepositorioBase<Inscripciones>(new DAL.Contexto());
+            RepositorioBase<Inscripciones> db = new RepositorioBase<Inscripciones>();
             int id;
             Inscripciones inscripcion = new Inscripciones();
 
@@ -163,7 +170,7 @@ namespace Parcial2_YersonEscolastico.UI.Registros
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
-            RepositorioBase<Inscripciones> db = new RepositorioBase<Inscripciones>(new DAL.Contexto());
+            RepositorioBase<Inscripciones> db = new RepositorioBase<Inscripciones>();
             MyErrorProvider.Clear();
             int id;
             int.TryParse(IdnumericUpDown.Text, out id);
@@ -181,7 +188,7 @@ namespace Parcial2_YersonEscolastico.UI.Registros
 
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
-            RepositorioBase<Asignaturas> db = new RepositorioBase<Asignaturas>(new DAL.Contexto());
+            RepositorioBase<Asignaturas> db = new RepositorioBase<Asignaturas>();
             Asignaturas asignatura = db.Buscar((int)AsignaturacomboBox.SelectedValue);
             if (detalleDataGridView.DataSource != null)
                 this.Detalle = (List<InscripcionesDetalle>)detalleDataGridView.DataSource;
@@ -216,7 +223,7 @@ namespace Parcial2_YersonEscolastico.UI.Registros
 
         private void LlenarComboBox()
         {
-            RepositorioBase<Asignaturas> db = new RepositorioBase<Asignaturas>(new DAL.Contexto());
+            RepositorioBase<Asignaturas> db = new RepositorioBase<Asignaturas>();
             var listado2 = new List<Asignaturas>();
             listado2 = db.GetList(p => true);
             AsignaturacomboBox.DataSource = listado2;
@@ -226,7 +233,7 @@ namespace Parcial2_YersonEscolastico.UI.Registros
 
         private void LLenarComboBoxTwo()
         {
-            RepositorioBase<Estudiantes> db = new RepositorioBase<Estudiantes>(new DAL.Contexto());
+            RepositorioBase<Estudiantes> db = new RepositorioBase<Estudiantes>();
             var listado = new List<Estudiantes>();
             listado = db.GetList(l => true);
             EstudiantecomboBox.DataSource = listado;

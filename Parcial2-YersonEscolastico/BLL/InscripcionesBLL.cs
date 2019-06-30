@@ -18,14 +18,14 @@ namespace Parcial2_YersonEscolastico.BLL
             Contexto db = new Contexto();
             try
             {
-                RepositorioBase<Estudiantes> Est = new RepositorioBase<Estudiantes>(new DAL.Contexto());
+                RepositorioBase<Estudiantes> Est = new RepositorioBase<Estudiantes>();
 
                 if (db.Inscripcion.Add(inscripcion) != null)
                 {
                     var estudiante = Est.Buscar(inscripcion.EstudianteId);
 
                     inscripcion.CalcularMonto();
-                    estudiante.Balance = (decimal)inscripcion.Monto;
+                    estudiante.Balance = (decimal)inscripcion.MontoInscripcion;
                     paso = db.SaveChanges() > 0;
                     Est.Modificar(estudiante);
                 }
@@ -44,14 +44,14 @@ namespace Parcial2_YersonEscolastico.BLL
         {
             bool paso = false;
             Contexto db = new Contexto();
-            RepositorioBase<Estudiantes> Est = new RepositorioBase<Estudiantes>(new DAL.Contexto());
+            RepositorioBase<Estudiantes> Est = new RepositorioBase<Estudiantes>();
 
 
             try
             {
                 var estudiante = Est.Buscar(inscripcion.EstudianteId);
-                var anterior = new RepositorioBase<Inscripciones>(new DAL.Contexto()).Buscar(inscripcion.InscripcionId);
-                estudiante.Balance -= (decimal)anterior.Monto;
+                var anterior = new RepositorioBase<Inscripciones>().Buscar(inscripcion.InscripcionId);
+                estudiante.Balance -= (decimal)anterior.MontoInscripcion;
 
                 foreach (var item in anterior.Asignaturas)
                 {
@@ -76,7 +76,7 @@ namespace Parcial2_YersonEscolastico.BLL
                 }
 
                 inscripcion.CalcularMonto();
-                estudiante.Balance += (decimal)inscripcion.Monto;
+                estudiante.Balance += (decimal)inscripcion.MontoInscripcion;
                 Est.Modificar(estudiante);
 
                 db.Entry(inscripcion).State = EntityState.Modified;
@@ -98,12 +98,12 @@ namespace Parcial2_YersonEscolastico.BLL
         {
             bool paso = false;
             Contexto db = new Contexto();
-            RepositorioBase<Estudiantes> Est = new RepositorioBase<Estudiantes>(new DAL.Contexto());
+            RepositorioBase<Estudiantes> Est = new RepositorioBase<Estudiantes>();
             try
             {
                 var Inscripcion = db.Inscripcion.Find(id);
                 var estudiante = Est.Buscar(Inscripcion.EstudianteId);
-                estudiante.Balance = estudiante.Balance - Inscripcion.Monto;
+                estudiante.Balance = estudiante.Balance - Inscripcion.MontoInscripcion;
                 Est.Modificar(estudiante);
                 db.Entry(Inscripcion).State = EntityState.Deleted;
                 paso = (db.SaveChanges() > 0);

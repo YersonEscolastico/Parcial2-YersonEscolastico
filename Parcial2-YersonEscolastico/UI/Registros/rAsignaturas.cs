@@ -83,7 +83,7 @@ namespace Parcial2_YersonEscolastico.UI.Registros
 
         private bool ExisteEnLaBaseDeDatos()
         {
-            RepositorioBase<Asignaturas> db = new RepositorioBase<Asignaturas>(new DAL.Contexto());
+            RepositorioBase<Asignaturas> db = new RepositorioBase<Asignaturas>();
             Asignaturas asignaturas = db.Buscar((int)IdnumericUpDown.Value);
             return (asignaturas!= null);
         }
@@ -91,7 +91,7 @@ namespace Parcial2_YersonEscolastico.UI.Registros
         private void Guadarbutton_Click_1(object sender, EventArgs e)
         {
 
-            RepositorioBase<Asignaturas> db = new RepositorioBase<Asignaturas>(new DAL.Contexto());
+            RepositorioBase<Asignaturas> db = new RepositorioBase<Asignaturas>();
             Asignaturas asignaturas;
             bool paso = false;
 
@@ -126,7 +126,7 @@ namespace Parcial2_YersonEscolastico.UI.Registros
 
         private void Buscarbutton_Click_1(object sender, EventArgs e)
         {
-            RepositorioBase<Asignaturas> db = new RepositorioBase<Asignaturas>(new DAL.Contexto());
+            RepositorioBase<Asignaturas> db = new RepositorioBase<Asignaturas>();
             try
             {
 
@@ -153,7 +153,7 @@ namespace Parcial2_YersonEscolastico.UI.Registros
 
         private void Eliminarbutton_Click_1(object sender, EventArgs e)
         {
-            RepositorioBase<Asignaturas> db = new RepositorioBase<Asignaturas>(new DAL.Contexto());
+            RepositorioBase<Asignaturas> db = new RepositorioBase<Asignaturas>();
             try
             {
                 if (IdnumericUpDown.Value > 0)
