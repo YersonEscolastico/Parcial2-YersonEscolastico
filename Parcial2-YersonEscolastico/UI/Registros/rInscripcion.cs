@@ -178,17 +178,25 @@ namespace Parcial2_YersonEscolastico.UI.Registros
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
             RepositorioBase<Inscripciones> db = new RepositorioBase<Inscripciones>();
-            MyErrorProvider.Clear();
-            int id;
-            int.TryParse(IdnumericUpDown.Text, out id);
-            Limpiar();
-            if (db.Eliminar(id))
+            try
             {
-                MessageBox.Show("Eliminado");
+                if (IdnumericUpDown.Value > 0)
+                {
+                    if (db.Eliminar((int)IdnumericUpDown.Value))
+                    {
+                        MessageBox.Show("Eliminado", "Atencion!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se puede eliminar", "Atencion!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    }
+                }
             }
-            else
+            catch (Exception)
             {
-                MyErrorProvider.SetError(IdnumericUpDown, "No se puede eliminar, porque no existe");
+                MessageBox.Show("NO se pudo eliminar", "Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
