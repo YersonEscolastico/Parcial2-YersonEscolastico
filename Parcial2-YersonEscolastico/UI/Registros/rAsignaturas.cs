@@ -1,4 +1,5 @@
-﻿using Parcial2_YersonEscolastico.Entidades;
+﻿using Parcial2_YersonEscolastico.DAL;
+using Parcial2_YersonEscolastico.Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -70,6 +71,11 @@ namespace Parcial2_YersonEscolastico.UI.Registros
                 paso = false;
 
             }
+            if (NoRepetidos(DescripciontextBox.Text))
+            {
+                MyErrorProvider.SetError(DescripciontextBox, "Ya existe una asignatura con ese nombre");
+                paso = false;
+            }
 
             if (CreditosnumericUpDown.Value > 5)
             {
@@ -109,13 +115,13 @@ namespace Parcial2_YersonEscolastico.UI.Registros
             {
                 if (!ExisteEnLaBaseDeDatos())
                 {
-                    MessageBox.Show("No se puede modificar un Estudiante que no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No se puede modificar una asignatura que no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                MessageBox.Show("Modificado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 paso = db.Modificar(asignaturas);
 
             }
-
             if (paso)
                 MessageBox.Show("Guardado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
@@ -176,5 +182,26 @@ namespace Parcial2_YersonEscolastico.UI.Registros
                 MessageBox.Show("NO se pudo eliminar", "Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public static bool NoRepetidos(string descripcion)
+        {
+            RepositorioBase<Asignaturas> db = new RepositorioBase<Asignaturas>();
+            bool paso = false;
+            Contexto d = new Contexto();
+
+            try
+            {
+                if (d.Asignaturas.Any(T=> T.Descripcion.Equals(descripcion)))
+                {
+                    paso = true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return paso;
+        }
+
     }
 }

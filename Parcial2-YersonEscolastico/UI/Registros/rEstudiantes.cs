@@ -67,7 +67,7 @@ namespace Parcial2_YersonEscolastico.UI.Registros
 
             if (FechadateTimePicker.Value > DateTime.Now)
             {
-                MyErrorProvider.SetError(FechadateTimePicker, "Ingrese fecha de hoy");
+                MyErrorProvider.SetError(FechadateTimePicker, "Fecha no puede se mayor a la de hoy");
                 paso = false;
             }
 
@@ -105,8 +105,8 @@ namespace Parcial2_YersonEscolastico.UI.Registros
                     MessageBox.Show("No se puede modificar un Estudiante que no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                MessageBox.Show("Modificado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 paso = db.Modificar(estudiante);
-
             }
 
             if (paso)
