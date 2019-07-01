@@ -132,7 +132,7 @@
             // 
             this.AsignaturacomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AsignaturacomboBox.FormattingEnabled = true;
-            this.AsignaturacomboBox.Location = new System.Drawing.Point(94, 20);
+            this.AsignaturacomboBox.Location = new System.Drawing.Point(95, 20);
             this.AsignaturacomboBox.Margin = new System.Windows.Forms.Padding(2);
             this.AsignaturacomboBox.Name = "AsignaturacomboBox";
             this.AsignaturacomboBox.Size = new System.Drawing.Size(142, 21);
@@ -165,7 +165,7 @@
             // 
             this.FechadateTimePicker.CustomFormat = "dd/MM/yyyy";
             this.FechadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.FechadateTimePicker.Location = new System.Drawing.Point(105, 101);
+            this.FechadateTimePicker.Location = new System.Drawing.Point(108, 101);
             this.FechadateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.FechadateTimePicker.Name = "FechadateTimePicker";
             this.FechadateTimePicker.Size = new System.Drawing.Size(188, 20);
@@ -175,7 +175,7 @@
             // 
             this.EstudiantecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.EstudiantecomboBox.FormattingEnabled = true;
-            this.EstudiantecomboBox.Location = new System.Drawing.Point(105, 64);
+            this.EstudiantecomboBox.Location = new System.Drawing.Point(108, 59);
             this.EstudiantecomboBox.Margin = new System.Windows.Forms.Padding(2);
             this.EstudiantecomboBox.Name = "EstudiantecomboBox";
             this.EstudiantecomboBox.Size = new System.Drawing.Size(190, 21);
