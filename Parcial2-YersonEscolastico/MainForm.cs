@@ -44,5 +44,11 @@ namespace Parcial2_YersonEscolastico
             cEstudiantes est = new cEstudiantes();
             est.Show();
         }
+
+        private void CAsignaturasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cAsignaturas asn = new cAsignaturas();
+            asn.Show();
+        }
     }
 }
