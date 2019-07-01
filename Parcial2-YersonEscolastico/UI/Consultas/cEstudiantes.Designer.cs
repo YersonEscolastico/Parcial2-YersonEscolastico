@@ -38,6 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Consultarbutton = new System.Windows.Forms.Button();
+            this.FiltroFechacheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.ConsultadataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,8 +48,9 @@
             this.FiltrocomboBox.Items.AddRange(new object[] {
             "Todo",
             "Id",
-            "Nombre"});
-            this.FiltrocomboBox.Location = new System.Drawing.Point(218, 30);
+            "Nombre",
+            "Balance"});
+            this.FiltrocomboBox.Location = new System.Drawing.Point(305, 30);
             this.FiltrocomboBox.Name = "FiltrocomboBox";
             this.FiltrocomboBox.Size = new System.Drawing.Size(105, 21);
             this.FiltrocomboBox.TabIndex = 32;
@@ -95,15 +97,15 @@
             this.ConsultadataGridView.AllowUserToDeleteRows = false;
             this.ConsultadataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ConsultadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ConsultadataGridView.Location = new System.Drawing.Point(12, 57);
+            this.ConsultadataGridView.Location = new System.Drawing.Point(12, 55);
             this.ConsultadataGridView.Name = "ConsultadataGridView";
             this.ConsultadataGridView.ReadOnly = true;
-            this.ConsultadataGridView.Size = new System.Drawing.Size(537, 337);
+            this.ConsultadataGridView.Size = new System.Drawing.Size(629, 337);
             this.ConsultadataGridView.TabIndex = 27;
             // 
             // CriteriotextBox
             // 
-            this.CriteriotextBox.Location = new System.Drawing.Point(329, 30);
+            this.CriteriotextBox.Location = new System.Drawing.Point(416, 30);
             this.CriteriotextBox.Name = "CriteriotextBox";
             this.CriteriotextBox.Size = new System.Drawing.Size(134, 20);
             this.CriteriotextBox.TabIndex = 25;
@@ -111,7 +113,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(326, 13);
+            this.label2.Location = new System.Drawing.Point(413, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 24;
@@ -120,7 +122,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(215, 13);
+            this.label1.Location = new System.Drawing.Point(302, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 23;
@@ -130,7 +132,7 @@
             // 
             this.Consultarbutton.Image = global::Parcial2_YersonEscolastico.Properties.Resources.Search_icon__1_;
             this.Consultarbutton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.Consultarbutton.Location = new System.Drawing.Point(469, 28);
+            this.Consultarbutton.Location = new System.Drawing.Point(556, 27);
             this.Consultarbutton.Name = "Consultarbutton";
             this.Consultarbutton.Size = new System.Drawing.Size(80, 23);
             this.Consultarbutton.TabIndex = 26;
@@ -139,11 +141,22 @@
             this.Consultarbutton.UseVisualStyleBackColor = true;
             this.Consultarbutton.Click += new System.EventHandler(this.Consultarbutton_Click);
             // 
+            // FiltroFechacheckBox
+            // 
+            this.FiltroFechacheckBox.AutoSize = true;
+            this.FiltroFechacheckBox.Location = new System.Drawing.Point(218, 32);
+            this.FiltroFechacheckBox.Name = "FiltroFechacheckBox";
+            this.FiltroFechacheckBox.Size = new System.Drawing.Size(81, 17);
+            this.FiltroFechacheckBox.TabIndex = 33;
+            this.FiltroFechacheckBox.Text = "Filtro Fecha";
+            this.FiltroFechacheckBox.UseVisualStyleBackColor = true;
+            // 
             // cEstudiantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 406);
+            this.ClientSize = new System.Drawing.Size(654, 404);
+            this.Controls.Add(this.FiltroFechacheckBox);
             this.Controls.Add(this.FiltrocomboBox);
             this.Controls.Add(this.HastadateTimePicker);
             this.Controls.Add(this.label4);
@@ -174,5 +187,6 @@
         private System.Windows.Forms.TextBox CriteriotextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox FiltroFechacheckBox;
     }
 }

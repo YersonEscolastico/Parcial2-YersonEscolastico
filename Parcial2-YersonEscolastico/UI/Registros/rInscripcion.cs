@@ -95,13 +95,6 @@ namespace Parcial2_YersonEscolastico.UI.Registros
                 paso = false;
             }
 
-            if (AsignaturacomboBox.Text == string.Empty)
-            {
-                MyErrorProvider.SetError(AsignaturacomboBox, "Este campo no puede estar vacio");
-                AsignaturacomboBox.Focus();
-                paso = false;
-            }
-
             if (Detalle.Count == 0)
             {
                 MyErrorProvider.SetError(AsignaturacomboBox, "Este campo no puede estar vacio");
@@ -203,15 +196,17 @@ namespace Parcial2_YersonEscolastico.UI.Registros
 
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
-            if (!Validar())
+            if (AsignaturacomboBox.Text == string.Empty)
+            {
+                MyErrorProvider.SetError(AsignaturacomboBox, "Este campo no puede estar vacio");
+                AsignaturacomboBox.Focus();
                 return;
+            }
 
             RepositorioBase<Asignaturas> db = new RepositorioBase<Asignaturas>();
             Asignaturas asignatura = db.Buscar((int)AsignaturacomboBox.SelectedValue);
             if (detalleDataGridView.DataSource != null)
                 this.Detalle = (List<InscripcionesDetalle>)detalleDataGridView.DataSource;
-
-
 
             this.Detalle.Add(new InscripcionesDetalle()
             {
@@ -220,7 +215,6 @@ namespace Parcial2_YersonEscolastico.UI.Registros
                 InscripcionDetallesId = 0,
                 SubTotal = (asignatura.Creditos * MontonumericUpDown.Value)
             });
-
             CargarGrid();
         }
 

@@ -26,51 +26,106 @@ namespace Parcial2_YersonEscolastico.UI.Consultas
 
         private void Consultar()
         {
-            var lista = new List<Estudiantes>();
+            var listado = new List<Estudiantes>();
             RepositorioBase<Estudiantes> db = new RepositorioBase<Estudiantes>();
-
-            if (CriteriotextBox.Text.Trim().Length > 0)
+            if (FiltroFechacheckBox.Checked == true)
             {
                 try
                 {
-                    switch (FiltrocomboBox.SelectedIndex)
+                    if (CriteriotextBox.Text.Trim().Length > 0)
                     {
-                        case 0:
-                            lista = db.GetList(A => true);
-                            break;
-                        case 1:
-                            int id = Convert.ToInt32(CriteriotextBox.Text);
-                            lista = db.GetList(E => E.EstudianteId == id);
-                            break;
-                        case 2:
-                            lista = db.GetList(E => E.Nombre.Contains(CriteriotextBox.Text));
-                            break;
+                        switch (FiltrocomboBox.Text)
+                        {
+                            case "Todo":
+                                listado = db.GetList(p => true);
+                                break;
+
+                            case "Id":
+                                int id = Convert.ToInt32(CriteriotextBox.Text);
+                                listado = db.GetList(p => p.EstudianteId == id);
+                                break;
+
+                            case "Nombre":
+                                listado = db.GetList(p => p.Nombre.Contains(CriteriotextBox.Text));
+                                break;
+
+                            case "Balance":
+                                decimal monto = Convert.ToInt32(CriteriotextBox.Text);
+                                listado = db.GetList(p => p.Balance == monto);
+                                break;
+
+                            default:
+                                break;
+                        }
+                        listado = listado.Where(c => c.FechaIngreso.Date >= DesdedateTimePicker.Value.Date && c.FechaIngreso.Date <= HastadateTimePicker.Value.Date).ToList();
                     }
-                    lista = lista.Where(E => E.FechaIngreso >= DesdedateTimePicker.Value.Date && E.FechaIngreso <= HastadateTimePicker.Value.Date).ToList();
+                    else
+                    {
+                        listado = db.GetList(p => true);
+                        listado = listado.Where(c => c.FechaIngreso.Date >= DesdedateTimePicker.Value.Date && c.FechaIngreso.Date <= HastadateTimePicker.Value.Date).ToList();
+                    }
+                    ConsultadataGridView.DataSource = null;
+                    ConsultadataGridView.DataSource = listado;
                 }
                 catch (Exception)
-                { }  
+                { }
             }
             else
-
-            if (FiltrocomboBox.Text == string.Empty)
             {
-                MessageBox.Show("El campo filtro no puede estar vacio.");
-            }
-            else
-                 if ((string)FiltrocomboBox.Text != "Todo")
-            {
-                if (CriteriotextBox.Text == string.Empty)
+                try
                 {
-                    MessageBox.Show("Debe agregar algun criterio");
+
+                    if (CriteriotextBox.Text.Trim().Length > 0)
+                    {
+                        switch (FiltrocomboBox.Text)
+                        {
+                            case "Todo":
+                                listado = db.GetList(p => true);
+                                break;
+
+                            case "Id":
+                                int id = Convert.ToInt32(CriteriotextBox.Text);
+                                listado = db.GetList(p => p.EstudianteId == id);
+                                break;
+
+                            case "Nombre":
+                                listado = db.GetList(p => p.Nombre.Contains(CriteriotextBox.Text));
+                                break;
+
+                            case "Balance":
+                                decimal monto = Convert.ToInt32(CriteriotextBox.Text);
+                                listado = db.GetList(p => p.Balance == monto);
+                                break;
+
+                            default:
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        if (FiltrocomboBox.Text == string.Empty)
+                        {
+                            MessageBox.Show("Filtro esta vacio");
+                        }
+                        else
+                            if ((string)FiltrocomboBox.Text != "Todo")
+                        {
+                            if (CriteriotextBox.Text == string.Empty)
+                            {
+                                MessageBox.Show("Criterio no puede estar vacio");
+                            }
+                        }
+                        else
+                        {
+                            listado = db.GetList(p => true);
+                        }
+                        ConsultadataGridView.DataSource = null;
+                        ConsultadataGridView.DataSource = listado;
+                    }
                 }
+                catch (Exception)
+                { }
             }
-            else
-            {
-                lista = db.GetList(p => true);
-            }
-            ConsultadataGridView.DataSource = null;
-            ConsultadataGridView.DataSource = lista;
         }
     }
 }

@@ -27,56 +27,111 @@ namespace Parcial2_YersonEscolastico.UI.Consultas
 
         private void Consultar()
         {
-            var lista = new List<Inscripciones>();
+            var listado = new List<Inscripciones>();
             RepositorioBase<Inscripciones> db = new RepositorioBase<Inscripciones>();
 
-            if (CriteriotextBox.Text.Trim().Length > 0)
+            if (FiltroFechacheckBox.Checked == true)
             {
                 try
                 {
-                    switch (FiltrocomboBox.SelectedIndex)
+                    if (CriteriotextBox.Text.Trim().Length > 0)
                     {
-                        case 0:
-                            lista = db.GetList(I => true);
-                            break;
-                        case 1:
-                            int id = Convert.ToInt32(CriteriotextBox.Text);
-                            lista = db.GetList(I => I.InscripcionId == id);
-                            break;
+                        switch (FiltrocomboBox.Text)
+                        {
+                            case "Todo":
+                                listado = db.GetList(p => true);
+                                break;
 
-                        case 2:
-                            int idtwo = Convert.ToInt32(CriteriotextBox.Text);
-                            lista = db.GetList(I => I.EstudianteId == idtwo);
-                            break;
+                            case "Id":
+                                int id = Convert.ToInt32(CriteriotextBox.Text);
+                                listado = db.GetList(p => p.InscripcionId == id);
+                                break;
+
+                            case "Estudiante Id":
+                                int est = Convert.ToInt32(CriteriotextBox.Text);
+                                listado = db.GetList(p => p.EstudianteId == est);
+                                break;
+
+                            case "Monto":
+                                decimal mont = Convert.ToInt32(CriteriotextBox.Text);
+                                listado = db.GetList(p => p.MontoInscripcion == mont);
+                                break;
+
+                            default:
+                                break;
+                        }
+                        listado = listado.Where(c => c.FechaInscripcion.Date >= DesdedateTimePicker.Value.Date && c.FechaInscripcion.Date <= HastadateTimePicker.Value.Date).ToList();
                     }
-                    lista = lista.Where(T => T.FechaInscripcion >= DesdedateTimePicker.Value.Date && T.FechaInscripcion <= HastadateTimePicker.Value.Date).ToList();
+                    else
+                    {
+                        listado = db.GetList(p => true);
+                        listado = listado.Where(c => c.FechaInscripcion.Date >= DesdedateTimePicker.Value.Date && c.FechaInscripcion.Date <= HastadateTimePicker.Value.Date).ToList();
+                    }
+                    ConsultadataGridView.DataSource = null;
+                    ConsultadataGridView.DataSource = listado;
+                }
+                catch (Exception)
+                { }
+            }
+            else
+            {
+                try
+                {
+
+                    if (CriteriotextBox.Text.Trim().Length > 0)
+                    {
+                        switch (FiltrocomboBox.Text)
+                        {
+                            case "Todo":
+                                listado = db.GetList(p => true);
+                                break;
+
+                            case "Id":
+                                int id = Convert.ToInt32(CriteriotextBox.Text);
+                                listado = db.GetList(p => p.InscripcionId == id);
+                                break;
+
+                            case "Estudiante Id":
+                                int est = Convert.ToInt32(CriteriotextBox.Text);
+                                listado = db.GetList(p => p.EstudianteId == est);
+                                break;
+
+                            case "Monto":
+                                decimal mont = Convert.ToInt32(CriteriotextBox.Text);
+                                listado = db.GetList(p => p.MontoInscripcion == mont);
+                                break;
+
+                            default:
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        if (FiltrocomboBox.Text == string.Empty)
+                        {
+                            MessageBox.Show("Filtro esta vacio");
+                        }
+                        else
+                            if ((string)FiltrocomboBox.Text != "Todo")
+                        {
+                            if (CriteriotextBox.Text == string.Empty)
+                            {
+                                MessageBox.Show("Criterio no puede estar vacio");
+                            }
+                        }
+                        else
+                        {
+                            listado = db.GetList(p => true);
+                        }
+                        ConsultadataGridView.DataSource = null;
+                        ConsultadataGridView.DataSource = listado;
+                    }
                 }
                 catch (Exception)
                 {
-
                 }
             }
-            else
-
-            if (FiltrocomboBox.Text == string.Empty)
-            {
-                MessageBox.Show("El campo filtro no puede estar vacio.");
             }
-            else
-                 if ((string)FiltrocomboBox.Text != "Todo")
-            {
-                if (CriteriotextBox.Text == string.Empty)
-                {
-                    MessageBox.Show("Debe agregar algun criterio");
-                }
-            }
-            else
-            {
-                lista = db.GetList(p => true);
-            }            
-            ConsultadataGridView.DataSource = null;
-            ConsultadataGridView.DataSource = lista;
         }
-    }
 }
 
