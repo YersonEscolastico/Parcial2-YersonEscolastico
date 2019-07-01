@@ -122,18 +122,13 @@ namespace Parcial2_YersonEscolastico.BLL
 
                 if (entity != null)
                 {
-                    entity.Asignaturas.Count();
-
-                   
+                    entity.Asignaturas.Count();                  
                 }
-               
-
             }
             catch (Exception)
             {
                 throw;
             }
-
             return entity;
         }
 
