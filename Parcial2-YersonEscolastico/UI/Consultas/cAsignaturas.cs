@@ -55,7 +55,7 @@ namespace Parcial2_YersonEscolastico.UI.Consultas
              
             if (FiltrocomboBox.Text == string.Empty)
             {
-                MessageBox.Show("El campo filtro no puede estar vacio.");
+                MessageBox.Show("Filtro esta vacio.");
             }
             else
                  if ((string)FiltrocomboBox.Text != "Todo")

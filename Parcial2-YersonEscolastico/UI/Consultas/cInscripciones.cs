@@ -36,23 +36,23 @@ namespace Parcial2_YersonEscolastico.UI.Consultas
                 {
                     if (CriteriotextBox.Text.Trim().Length > 0)
                     {
-                        switch (FiltrocomboBox.Text)
+                        switch (FiltrocomboBox.SelectedIndex)
                         {
-                            case "Todo":
+                            case 0:
                                 listado = db.GetList(p => true);
                                 break;
 
-                            case "Id":
+                            case 1:
                                 int id = Convert.ToInt32(CriteriotextBox.Text);
                                 listado = db.GetList(p => p.InscripcionId == id);
                                 break;
 
-                            case "Estudiante Id":
+                            case 2:
                                 int est = Convert.ToInt32(CriteriotextBox.Text);
                                 listado = db.GetList(p => p.EstudianteId == est);
                                 break;
 
-                            case "Monto":
+                            case 3:
                                 decimal mont = Convert.ToInt32(CriteriotextBox.Text);
                                 listado = db.GetList(p => p.MontoInscripcion == mont);
                                 break;
@@ -80,23 +80,23 @@ namespace Parcial2_YersonEscolastico.UI.Consultas
 
                     if (CriteriotextBox.Text.Trim().Length > 0)
                     {
-                        switch (FiltrocomboBox.Text)
+                        switch (FiltrocomboBox.SelectedIndex)
                         {
-                            case "Todo":
+                            case 0:
                                 listado = db.GetList(p => true);
                                 break;
 
-                            case "Id":
+                            case 1:
                                 int id = Convert.ToInt32(CriteriotextBox.Text);
                                 listado = db.GetList(p => p.InscripcionId == id);
                                 break;
 
-                            case "Estudiante Id":
+                            case 2:
                                 int est = Convert.ToInt32(CriteriotextBox.Text);
                                 listado = db.GetList(p => p.EstudianteId == est);
                                 break;
 
-                            case "Monto":
+                            case 3:
                                 decimal mont = Convert.ToInt32(CriteriotextBox.Text);
                                 listado = db.GetList(p => p.MontoInscripcion == mont);
                                 break;
@@ -116,7 +116,7 @@ namespace Parcial2_YersonEscolastico.UI.Consultas
                         {
                             if (CriteriotextBox.Text == string.Empty)
                             {
-                                MessageBox.Show("Criterio no puede estar vacio");
+                                MessageBox.Show("Debe agregar algun criterio");
                             }
                         }
                         else

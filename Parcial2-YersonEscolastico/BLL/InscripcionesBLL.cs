@@ -29,13 +29,11 @@ namespace Parcial2_YersonEscolastico.BLL
                     paso = db.SaveChanges() > 0;
                     Est.Modificar(estudiante);
                 }
-
             }
             catch (Exception)
             {
                 throw;
             }
-
             return paso;
         }
 
@@ -60,9 +58,7 @@ namespace Parcial2_YersonEscolastico.BLL
                         db.Entry(item).State = EntityState.Deleted;
 
                     }
-
                 }
-
                 foreach (var item in inscripcion.Asignaturas)
                 {
                     if (item.InscripcionDetallesId == 0)
@@ -82,15 +78,11 @@ namespace Parcial2_YersonEscolastico.BLL
                 db.Entry(inscripcion).State = EntityState.Modified;
 
                 paso = db.SaveChanges() > 0;
-
-
             }
             catch (Exception)
             {
                 throw;
             }
-
-
             return paso;
         }
 

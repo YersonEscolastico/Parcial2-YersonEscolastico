@@ -13,7 +13,6 @@ namespace Tarea6.BLL
 {
     public class RepositorioBase<T> : IDisposable, IRepository<T> where T : class
     {
-
         internal Contexto db;
 
         public RepositorioBase()
@@ -35,8 +34,6 @@ namespace Tarea6.BLL
             {
                 throw;
             }
-
-
             return paso;
         }
 
@@ -46,7 +43,6 @@ namespace Tarea6.BLL
 
             try
             {
-
                 db.Entry(entity).State = EntityState.Modified;
                 paso = db.SaveChanges() > 0;
 
@@ -55,8 +51,6 @@ namespace Tarea6.BLL
             {
                 throw;
             }
-
-
             return paso;
         }
 
@@ -74,7 +68,6 @@ namespace Tarea6.BLL
                 throw;
             }
 
-
             return entity;
         }
 
@@ -91,7 +84,6 @@ namespace Tarea6.BLL
             {
                 throw;
             }
-
 
             return lista;
         }
