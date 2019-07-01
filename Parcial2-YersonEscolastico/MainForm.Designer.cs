@@ -36,7 +36,7 @@
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cEstudiantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cAsignaturasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.inscripcionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cInscripcionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,7 +87,7 @@
             this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cEstudiantesToolStripMenuItem,
             this.cAsignaturasToolStripMenuItem1,
-            this.inscripcionesToolStripMenuItem1});
+            this.cInscripcionesToolStripMenuItem1});
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             this.consultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.consultasToolStripMenuItem.Text = "Consultas";
@@ -106,11 +106,12 @@
             this.cAsignaturasToolStripMenuItem1.Text = "Asignaturas";
             this.cAsignaturasToolStripMenuItem1.Click += new System.EventHandler(this.CAsignaturasToolStripMenuItem1_Click);
             // 
-            // inscripcionesToolStripMenuItem1
+            // cInscripcionesToolStripMenuItem1
             // 
-            this.inscripcionesToolStripMenuItem1.Name = "inscripcionesToolStripMenuItem1";
-            this.inscripcionesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.inscripcionesToolStripMenuItem1.Text = "Inscripciones";
+            this.cInscripcionesToolStripMenuItem1.Name = "cInscripcionesToolStripMenuItem1";
+            this.cInscripcionesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.cInscripcionesToolStripMenuItem1.Text = "Inscripciones";
+            this.cInscripcionesToolStripMenuItem1.Click += new System.EventHandler(this.CInscripcionesToolStripMenuItem1_Click);
             // 
             // MainForm
             // 
@@ -138,7 +139,7 @@
         private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cEstudiantesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cAsignaturasToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem inscripcionesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem cInscripcionesToolStripMenuItem1;
     }
 }
 

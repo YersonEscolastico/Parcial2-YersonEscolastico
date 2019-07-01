@@ -50,5 +50,11 @@ namespace Parcial2_YersonEscolastico
             cAsignaturas asn = new cAsignaturas();
             asn.Show();
         }
+
+        private void CInscripcionesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cInscripciones ins = new cInscripciones();
+            ins.Show();
+        }
     }
 }
