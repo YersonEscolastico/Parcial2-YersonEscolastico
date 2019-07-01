@@ -77,9 +77,9 @@ namespace Parcial2_YersonEscolastico.UI.Registros
                 paso = false;
             }
 
-            if (CreditosnumericUpDown.Value > 5)
+            if (CreditosnumericUpDown.Value > 10)
             {
-                MyErrorProvider.SetError(CreditosnumericUpDown, "No puede ser mayor que 5");
+                MyErrorProvider.SetError(CreditosnumericUpDown, "No puede ser mayor que 10");
                 paso = false;
 
             }
