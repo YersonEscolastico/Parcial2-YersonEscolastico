@@ -134,8 +134,17 @@ namespace Parcial2_YersonEscolastico.UI.Registros
                     MessageBox.Show("No se puede modificar un Estudiante que no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                MessageBox.Show("Modificado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                paso = InscripcionesBLL.Modificar(inscripcion);             
+                if (Obtener(inscripcion))
+                {
+                    MessageBox.Show("Modificado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    paso = InscripcionesBLL.Modificar(inscripcion);
+                }
+                else
+                {
+                    MessageBox.Show("Fallo el estudiante no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
             }
 
             if (paso)
@@ -232,7 +241,27 @@ namespace Parcial2_YersonEscolastico.UI.Registros
             detalleDataGridView.DataSource = null;
             detalleDataGridView.DataSource = Detalle;
         }
+        private bool Obtener(Inscripciones inscripcion)
+        {
+            bool paso = true;
+            RepositorioBase<Estudiantes> db = new RepositorioBase<Estudiantes>();
+            Estudiantes asignaturas;
 
+            asignaturas = db.Buscar(inscripcion.EstudianteId);
+            if (asignaturas != null)
+            {
+                LlenarComboBoxThree(asignaturas);
+                paso = true;
+            }
+            else
+            {
+                EstudiantecomboBox.Text = inscripcion.EstudianteId.ToString();
+                paso = false;
+
+            }
+            return paso;
+
+        }
         private void LlenarComboBox()
         {
             RepositorioBase<Asignaturas> db = new RepositorioBase<Asignaturas>();
@@ -251,6 +280,16 @@ namespace Parcial2_YersonEscolastico.UI.Registros
             EstudiantecomboBox.DataSource = listado;
             EstudiantecomboBox.DisplayMember = "Nombre";
             EstudiantecomboBox.ValueMember = "EstudianteId";
+        }
+        private void LlenarComboBoxThree(Estudiantes estudiante)
+        {
+            RepositorioBase<Estudiantes> db = new RepositorioBase<Estudiantes>();
+            var listado2 = new List<Estudiantes>();
+            listado2 = db.GetList(p => p.EstudianteId == estudiante.EstudianteId);
+            EstudiantecomboBox.DataSource = listado2;
+            EstudiantecomboBox.DisplayMember = "Nombre";
+            EstudiantecomboBox.ValueMember = "EstudianteId";
+
         }
     }
 }
