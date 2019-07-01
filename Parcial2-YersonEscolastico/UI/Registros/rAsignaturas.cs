@@ -202,6 +202,5 @@ namespace Parcial2_YersonEscolastico.UI.Registros
             }
             return paso;
         }
-
     }
 }

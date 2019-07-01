@@ -104,6 +104,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(492, 325);
             this.Controls.Add(this.ConsultadataGridView);
             this.Controls.Add(this.Consultarbutton);
@@ -111,6 +112,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.FiltrocomboBox);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "cAsignaturas";
             this.Text = "Consulta de asignaturas";
             ((System.ComponentModel.ISupportInitialize)(this.ConsultadataGridView)).EndInit();

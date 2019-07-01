@@ -55,7 +55,7 @@ namespace Parcial2_YersonEscolastico.UI.Registros
             }
             else
             {
-                inscripcion.EstudianteId = Convert.ToInt32(EstudiantecomboBox.Text);
+                inscripcion.EstudianteId = Convert.ToInt32(EstudiantecomboBox.SelectedValue);
             }
             inscripcion.InscripcionId = Convert.ToInt32(IdnumericUpDown.Value);
             inscripcion.MontoCreditos = MontonumericUpDown.Value;
@@ -68,7 +68,7 @@ namespace Parcial2_YersonEscolastico.UI.Registros
         private void LlenaCampos(Inscripciones inscripcion)
         {
             IdnumericUpDown.Value = inscripcion.InscripcionId;
-            EstudiantecomboBox.Text = inscripcion.EstudianteId.ToString();
+            EstudiantecomboBox.SelectedValue = inscripcion.EstudianteId;
             MontoInscripciontextBox.Text = inscripcion.MontoInscripcion.ToString();
             MontonumericUpDown.Value = inscripcion.MontoCreditos;
             FechadateTimePicker.Value = inscripcion.FechaInscripcion;
@@ -98,6 +98,12 @@ namespace Parcial2_YersonEscolastico.UI.Registros
             if (Detalle.Count == 0)
             {
                 MyErrorProvider.SetError(AsignaturacomboBox, "Este campo no puede estar vacio");
+                AsignaturacomboBox.Focus();
+                paso = false;
+            }
+            if (string.IsNullOrWhiteSpace(detalleDataGridView.Text))
+            {
+                MyErrorProvider.SetError(detalleDataGridView, "Este campo no puede estar vacio");
                 AsignaturacomboBox.Focus();
                 paso = false;
             }
@@ -165,7 +171,7 @@ namespace Parcial2_YersonEscolastico.UI.Registros
             int.TryParse(IdnumericUpDown.Text, out id);
             Limpiar();
 
-            inscripcion = db.Buscar(id);
+            inscripcion = InscripcionesBLL.Buscar(id);
 
             if (inscripcion != null)
             {
@@ -217,12 +223,14 @@ namespace Parcial2_YersonEscolastico.UI.Registros
             if (detalleDataGridView.DataSource != null)
                 this.Detalle = (List<InscripcionesDetalle>)detalleDataGridView.DataSource;
 
+            var subtotal = asignatura.Creditos * MontonumericUpDown.Value;
+
             this.Detalle.Add(new InscripcionesDetalle()
             {
                 InscripcionId = (int)IdnumericUpDown.Value,
                 AsignaturaId = (int)AsignaturacomboBox.SelectedValue,
                 InscripcionDetallesId = 0,
-                SubTotal = (asignatura.Creditos * MontonumericUpDown.Value)
+                SubTotal = subtotal
             });
             CargarGrid();
         }

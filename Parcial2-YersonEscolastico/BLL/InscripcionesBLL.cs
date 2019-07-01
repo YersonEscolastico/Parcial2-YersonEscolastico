@@ -110,5 +110,32 @@ namespace Parcial2_YersonEscolastico.BLL
             }
             return paso;
         }
+
+        public static Inscripciones Buscar(int id)
+        {
+            Inscripciones entity;
+            Contexto db = new Contexto();
+
+            try
+            {
+                entity = db.Set<Inscripciones>().Find(id);
+
+                if (entity != null)
+                {
+                    entity.Asignaturas.Count();
+
+                   
+                }
+               
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return entity;
+        }
+
     }
 }
