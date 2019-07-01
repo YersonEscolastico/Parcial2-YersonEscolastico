@@ -52,6 +52,20 @@ namespace Parcial2_YersonEscolastico.UI.Consultas
                 { }  
             }
             else
+
+            if (FiltrocomboBox.Text == string.Empty)
+            {
+                MessageBox.Show("El campo filtro no puede estar vacio.");
+            }
+            else
+                 if ((string)FiltrocomboBox.Text != "Todo")
+            {
+                if (CriteriotextBox.Text == string.Empty)
+                {
+                    MessageBox.Show("Debe agregar algun criterio");
+                }
+            }
+            else
             {
                 lista = db.GetList(p => true);
             }
