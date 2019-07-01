@@ -46,7 +46,7 @@
             this.ConsultadataGridView.Location = new System.Drawing.Point(12, 55);
             this.ConsultadataGridView.Name = "ConsultadataGridView";
             this.ConsultadataGridView.ReadOnly = true;
-            this.ConsultadataGridView.Size = new System.Drawing.Size(468, 273);
+            this.ConsultadataGridView.Size = new System.Drawing.Size(468, 258);
             this.ConsultadataGridView.TabIndex = 17;
             // 
             // CriteriotextBox
@@ -67,6 +67,7 @@
             // 
             // FiltrocomboBox
             // 
+            this.FiltrocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FiltrocomboBox.FormattingEnabled = true;
             this.FiltrocomboBox.Items.AddRange(new object[] {
             "Todo",
@@ -103,7 +104,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 336);
+            this.ClientSize = new System.Drawing.Size(492, 325);
             this.Controls.Add(this.ConsultadataGridView);
             this.Controls.Add(this.Consultarbutton);
             this.Controls.Add(this.CriteriotextBox);

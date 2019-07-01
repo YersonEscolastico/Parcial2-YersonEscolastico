@@ -44,6 +44,7 @@
             // 
             // FiltrocomboBox
             // 
+            this.FiltrocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FiltrocomboBox.FormattingEnabled = true;
             this.FiltrocomboBox.Items.AddRange(new object[] {
             "Todo",
@@ -134,7 +135,7 @@
             this.Consultarbutton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.Consultarbutton.Location = new System.Drawing.Point(556, 27);
             this.Consultarbutton.Name = "Consultarbutton";
-            this.Consultarbutton.Size = new System.Drawing.Size(80, 23);
+            this.Consultarbutton.Size = new System.Drawing.Size(86, 23);
             this.Consultarbutton.TabIndex = 26;
             this.Consultarbutton.Text = "Consultar";
             this.Consultarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

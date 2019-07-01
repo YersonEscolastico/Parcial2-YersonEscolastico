@@ -32,7 +32,9 @@
             this.MontoInscripciontextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Removerbutton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.Agregarbutton = new System.Windows.Forms.Button();
             this.AsignaturacomboBox = new System.Windows.Forms.ComboBox();
             this.detalleDataGridView = new System.Windows.Forms.DataGridView();
             this.MontonumericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -48,8 +50,6 @@
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.Eliminarbutton = new System.Windows.Forms.Button();
             this.Nuevobutton = new System.Windows.Forms.Button();
-            this.Removerbutton = new System.Windows.Forms.Button();
-            this.Agregarbutton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.detalleDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MontonumericUpDown)).BeginInit();
@@ -92,6 +92,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
             // 
+            // Removerbutton
+            // 
+            this.Removerbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Removerbutton.Image = global::Parcial2_YersonEscolastico.Properties.Resources.Remover;
+            this.Removerbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Removerbutton.Location = new System.Drawing.Point(16, 183);
+            this.Removerbutton.Margin = new System.Windows.Forms.Padding(2);
+            this.Removerbutton.Name = "Removerbutton";
+            this.Removerbutton.Size = new System.Drawing.Size(114, 28);
+            this.Removerbutton.TabIndex = 37;
+            this.Removerbutton.Text = "Remover fila";
+            this.Removerbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Removerbutton.UseVisualStyleBackColor = true;
+            this.Removerbutton.Click += new System.EventHandler(this.Removerbutton_Click);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -102,8 +117,20 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Asignatura";
             // 
+            // Agregarbutton
+            // 
+            this.Agregarbutton.Image = global::Parcial2_YersonEscolastico.Properties.Resources.Nuevo;
+            this.Agregarbutton.Location = new System.Drawing.Point(250, 15);
+            this.Agregarbutton.Margin = new System.Windows.Forms.Padding(2);
+            this.Agregarbutton.Name = "Agregarbutton";
+            this.Agregarbutton.Size = new System.Drawing.Size(32, 31);
+            this.Agregarbutton.TabIndex = 35;
+            this.Agregarbutton.UseVisualStyleBackColor = true;
+            this.Agregarbutton.Click += new System.EventHandler(this.Agregarbutton_Click);
+            // 
             // AsignaturacomboBox
             // 
+            this.AsignaturacomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AsignaturacomboBox.FormattingEnabled = true;
             this.AsignaturacomboBox.Location = new System.Drawing.Point(94, 20);
             this.AsignaturacomboBox.Margin = new System.Windows.Forms.Padding(2);
@@ -146,6 +173,7 @@
             // 
             // EstudiantecomboBox
             // 
+            this.EstudiantecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.EstudiantecomboBox.FormattingEnabled = true;
             this.EstudiantecomboBox.Location = new System.Drawing.Point(105, 64);
             this.EstudiantecomboBox.Margin = new System.Windows.Forms.Padding(2);
@@ -268,32 +296,6 @@
             this.Nuevobutton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.Nuevobutton.UseVisualStyleBackColor = true;
             this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
-            // 
-            // Removerbutton
-            // 
-            this.Removerbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Removerbutton.Image = global::Parcial2_YersonEscolastico.Properties.Resources.Remover;
-            this.Removerbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Removerbutton.Location = new System.Drawing.Point(16, 183);
-            this.Removerbutton.Margin = new System.Windows.Forms.Padding(2);
-            this.Removerbutton.Name = "Removerbutton";
-            this.Removerbutton.Size = new System.Drawing.Size(114, 28);
-            this.Removerbutton.TabIndex = 37;
-            this.Removerbutton.Text = "Remover fila";
-            this.Removerbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Removerbutton.UseVisualStyleBackColor = true;
-            this.Removerbutton.Click += new System.EventHandler(this.Removerbutton_Click);
-            // 
-            // Agregarbutton
-            // 
-            this.Agregarbutton.Image = global::Parcial2_YersonEscolastico.Properties.Resources.Nuevo;
-            this.Agregarbutton.Location = new System.Drawing.Point(250, 15);
-            this.Agregarbutton.Margin = new System.Windows.Forms.Padding(2);
-            this.Agregarbutton.Name = "Agregarbutton";
-            this.Agregarbutton.Size = new System.Drawing.Size(32, 31);
-            this.Agregarbutton.TabIndex = 35;
-            this.Agregarbutton.UseVisualStyleBackColor = true;
-            this.Agregarbutton.Click += new System.EventHandler(this.Agregarbutton_Click);
             // 
             // rInscripcion
             // 

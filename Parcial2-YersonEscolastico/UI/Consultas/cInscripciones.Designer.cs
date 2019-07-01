@@ -44,6 +44,7 @@
             // 
             // FiltrocomboBox
             // 
+            this.FiltrocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FiltrocomboBox.FormattingEnabled = true;
             this.FiltrocomboBox.Items.AddRange(new object[] {
             "Todo",
@@ -100,16 +101,16 @@
             this.ConsultadataGridView.Location = new System.Drawing.Point(12, 57);
             this.ConsultadataGridView.Name = "ConsultadataGridView";
             this.ConsultadataGridView.ReadOnly = true;
-            this.ConsultadataGridView.Size = new System.Drawing.Size(624, 337);
+            this.ConsultadataGridView.Size = new System.Drawing.Size(630, 337);
             this.ConsultadataGridView.TabIndex = 37;
             // 
             // Consultarbutton
             // 
             this.Consultarbutton.Image = global::Parcial2_YersonEscolastico.Properties.Resources.Search_icon__1_;
             this.Consultarbutton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.Consultarbutton.Location = new System.Drawing.Point(556, 28);
+            this.Consultarbutton.Location = new System.Drawing.Point(556, 27);
             this.Consultarbutton.Name = "Consultarbutton";
-            this.Consultarbutton.Size = new System.Drawing.Size(80, 23);
+            this.Consultarbutton.Size = new System.Drawing.Size(86, 23);
             this.Consultarbutton.TabIndex = 36;
             this.Consultarbutton.Text = "Consultar";
             this.Consultarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -155,7 +156,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 406);
+            this.ClientSize = new System.Drawing.Size(654, 404);
             this.Controls.Add(this.FiltroFechacheckBox);
             this.Controls.Add(this.FiltrocomboBox);
             this.Controls.Add(this.HastadateTimePicker);
