@@ -202,5 +202,10 @@ namespace Parcial2_YersonEscolastico.UI.Registros
             }
             return paso;
         }
+
+        private void Nuevobutton_Click_1(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
     }
 }

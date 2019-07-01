@@ -167,5 +167,10 @@ namespace Parcial2_YersonEscolastico.UI.Registros
                 MessageBox.Show("NO se pudo eliminar", "Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void Nuevobutton_Click_1(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
     }
 }
