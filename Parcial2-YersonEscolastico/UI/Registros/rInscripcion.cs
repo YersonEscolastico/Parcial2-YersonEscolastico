@@ -95,13 +95,6 @@ namespace Parcial2_YersonEscolastico.UI.Registros
                 paso = false;
             }
 
-            if (MontonumericUpDown.Value >10)
-            {
-                MyErrorProvider.SetError(MontonumericUpDown, "La materia no puede tener mas de 10 creditos");
-                MontonumericUpDown.Focus();
-                paso = false;
-            }
-
             if (Detalle.Count == 0)
             {
                 MyErrorProvider.SetError(AsignaturacomboBox, "Este campo no puede estar vacio");
