@@ -101,13 +101,6 @@ namespace Parcial2_YersonEscolastico.UI.Registros
                 AsignaturacomboBox.Focus();
                 paso = false;
             }
-            if (string.IsNullOrWhiteSpace(detalleDataGridView.Text))
-            {
-                MyErrorProvider.SetError(detalleDataGridView, "Este campo no puede estar vacio");
-                AsignaturacomboBox.Focus();
-                paso = false;
-            }
-
             return paso;
         }
 
