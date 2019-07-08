@@ -1,5 +1,5 @@
-﻿using Parcial2_YersonEscolastico.BLL;
-using Parcial2_YersonEscolastico.Entidades;
+﻿using BLL;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tarea6.BLL;
+
 
 namespace Parcial2_YersonEscolastico.UI.Registros
 {
@@ -114,17 +114,17 @@ namespace Parcial2_YersonEscolastico.UI.Registros
 
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
-            Inscripciones inscripcion;
+            Inscripciones Inscripcion;
             bool paso = false;
 
             if (!Validar())
                 return;
 
-            inscripcion = LlenaClase();
-            inscripcion.CalcularMonto();
+            Inscripcion = LlenaClase();
+            Inscripcion.CalcularMonto();
             if (IdnumericUpDown.Value == 0)
             {
-                paso = InscripcionesBLL.Guardar(inscripcion);
+                paso = InscripcionesBLL.Guardar(Inscripcion);
             }
             else
             {
@@ -133,10 +133,10 @@ namespace Parcial2_YersonEscolastico.UI.Registros
                     MessageBox.Show("No se puede modificar un Estudiante que no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                if (Obtener(inscripcion))
+                if (Obtener(Inscripcion))
                 {
                     MessageBox.Show("Modificado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    paso = InscripcionesBLL.Modificar(inscripcion);
+                    paso = InscripcionesBLL.Modificar(Inscripcion);
                 }
                 else
                 {

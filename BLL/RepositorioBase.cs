@@ -1,15 +1,13 @@
-﻿using System;
+﻿using DAL;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using Parcial2_YersonEscolastico.BLL;
-using Parcial2_YersonEscolastico.DAL;
 
-
-namespace Tarea6.BLL
+namespace BLL
 {
     public class RepositorioBase<T> : IDisposable, IRepository<T> where T : class
     {
@@ -111,6 +109,6 @@ namespace Tarea6.BLL
         {
             db.Dispose();
         }
-       
+
     }
 }

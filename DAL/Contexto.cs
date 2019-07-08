@@ -1,4 +1,4 @@
-﻿using Parcial2_YersonEscolastico.Entidades;
+﻿using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Parcial2_YersonEscolastico.DAL
+namespace DAL
 {
     public class Contexto : DbContext
     {
@@ -16,6 +16,5 @@ namespace Parcial2_YersonEscolastico.DAL
 
         public Contexto() : base("ConStr")
         { }
-
     }
 }

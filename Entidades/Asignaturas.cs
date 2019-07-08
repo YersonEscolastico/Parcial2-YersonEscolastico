@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Parcial2_YersonEscolastico.Entidades
+namespace Entidades
 {
     public class Asignaturas
     {
@@ -20,6 +20,5 @@ namespace Parcial2_YersonEscolastico.Entidades
             Descripcion = string.Empty;
             Creditos = 0;
         }
-
     }
 }

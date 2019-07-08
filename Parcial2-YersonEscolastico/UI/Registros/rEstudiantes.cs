@@ -1,4 +1,5 @@
-﻿using Parcial2_YersonEscolastico.Entidades;
+﻿using BLL;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tarea6.BLL;
+
 
 namespace Parcial2_YersonEscolastico.UI.Registros
 {

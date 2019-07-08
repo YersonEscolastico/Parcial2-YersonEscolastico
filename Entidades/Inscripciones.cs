@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Parcial2_YersonEscolastico.Entidades
+namespace Entidades
 {
     public class Inscripciones
     {
@@ -15,7 +15,7 @@ namespace Parcial2_YersonEscolastico.Entidades
         public decimal MontoInscripcion { get; set; }
         public decimal MontoCreditos { get; set; }
         public int EstudianteId { get; set; }
-        
+
         public virtual List<InscripcionesDetalle> Asignaturas { get; set; }
 
         public Inscripciones()
@@ -23,7 +23,7 @@ namespace Parcial2_YersonEscolastico.Entidades
             InscripcionId = 0;
             EstudianteId = 0;
             FechaInscripcion = DateTime.Now;
-            MontoCreditos= 0;
+            MontoCreditos = 0;
             Asignaturas = new List<InscripcionesDetalle>();
         }
 

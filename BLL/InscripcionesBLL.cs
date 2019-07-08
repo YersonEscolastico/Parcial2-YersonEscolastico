@@ -1,14 +1,10 @@
-﻿using Parcial2_YersonEscolastico.DAL;
-using Parcial2_YersonEscolastico.Entidades;
+﻿using DAL;
+using Entidades;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tarea6.BLL;
 
-namespace Parcial2_YersonEscolastico.BLL
+namespace BLL
 {
     public class InscripcionesBLL
     {
@@ -122,7 +118,7 @@ namespace Parcial2_YersonEscolastico.BLL
 
                 if (entity != null)
                 {
-                    entity.Asignaturas.Count();                  
+                    entity.Asignaturas.Count();
                 }
             }
             catch (Exception)
@@ -133,4 +129,6 @@ namespace Parcial2_YersonEscolastico.BLL
         }
 
     }
+
 }
+

@@ -72,6 +72,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{7A9C7AF1-550E-4071-B622-DE998ACB3832}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{C4BDC665-49C9-4188-A71F-6FAFBA681091}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Parcial2-YersonEscolastico\Parcial2-YersonEscolastico.csproj">
       <Project>{7B1EBFAC-7DC0-415E-919F-D37A0ADE7B43}</Project>
       <Name>Parcial2-YersonEscolastico</Name>

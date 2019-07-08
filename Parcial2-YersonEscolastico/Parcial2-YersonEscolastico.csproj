@@ -53,14 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\InscripcionesBLL.cs" />
-    <Compile Include="BLL\IRepository.cs" />
-    <Compile Include="BLL\RepositorioBase.cs" />
-    <Compile Include="DAL\Contexto.cs" />
-    <Compile Include="Entidades\Asignaturas.cs" />
-    <Compile Include="Entidades\Estudiantes.cs" />
-    <Compile Include="Entidades\Inscripciones.cs" />
-    <Compile Include="Entidades\InscripcionesDetalle.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +165,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{7a9c7af1-550e-4071-b622-de998acb3832}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{188B54F1-421D-48F1-A3BC-1A86E4121CBF}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{c4bdc665-49c9-4188-a71f-6fafba681091}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

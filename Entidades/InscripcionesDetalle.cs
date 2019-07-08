@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Parcial2_YersonEscolastico.Entidades
+namespace Entidades
 {
     public class InscripcionesDetalle
     {
-        [Key]
+         [Key]
         public int InscripcionDetallesId { get; set; }
         public int InscripcionId { get; set; }
         public int AsignaturaId { get; set; }
@@ -19,7 +18,7 @@ namespace Parcial2_YersonEscolastico.Entidades
         //[ForeignKey("AsignaturaId")]
         //public virtual Asignaturas Asignatura { get; set; }
 
-        public InscripcionesDetalle()
+        public  InscripcionesDetalle()
         {
             InscripcionDetallesId = 0;
             InscripcionId = 0;
@@ -27,7 +26,7 @@ namespace Parcial2_YersonEscolastico.Entidades
             SubTotal = 0;
         }
 
-        public InscripcionesDetalle(int id, int inscripcionId, int asignaturaId, decimal subtotal)
+        public  InscripcionesDetalle(int id, int inscripcionId, int asignaturaId, decimal subtotal)
         {
             InscripcionDetallesId = id;
             InscripcionId = inscripcionId;

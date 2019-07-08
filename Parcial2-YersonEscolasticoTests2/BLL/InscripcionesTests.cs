@@ -1,6 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Parcial2_YersonEscolastico.BLL;
-using Parcial2_YersonEscolastico.Entidades;
+﻿using BLL;
+using Entidades;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
